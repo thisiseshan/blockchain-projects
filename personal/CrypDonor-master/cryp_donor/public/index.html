@@ -1,0 +1,406 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<link rel="stylesheet" href="assets/css/main.css" />  <!--  check -->
+
+	<script src="web3.min.js"></script>
+    <title>Document</title>
+</head>
+    	<body class="is-preload">
+
+		
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<h1>CrypDonor</h1>
+					<p>Securely donate Ether, anonymously.<br/>
+						<div class="col-6 col-12-xsmall">
+			                        <input type="email"  id="amt"  placeholder="Enter Donation Amount"/>
+			                      </div
+			<ul class="actions">
+			                    <li>
+			                    	<div align="center">
+			                    	<a href="#abc" class="button primary"">Donate</a>
+			                    	</div>
+
+			                    	</li>
+			                  </ul>
+				</div>
+				<video autoplay loop muted playsinline src="images/banner.mp4"></video>
+			</section>
+
+		<!-- Highlights -->
+			<section class="wrapper" id = "abc">
+				<div class="inner" >
+					<header class="special" >
+						<h2>You can start today!</h2>
+					</header>
+					<div class="highlights">
+						<section>
+							<div class="content">
+								<header>
+									<a href="" class="icon fa-vcard-o"><span class="label">Icon</span></a>
+								</header>
+								<p><font size="1.9" id="add1">0xe4CC2a2a1B199576D912d50c4DB0d641999f8f9c</font></p>
+								<a href="#" class="button primary" id="add1btn" value ="">Send</a>
+							
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<a href="" class="icon fa-vcard-o"><span class="label">Icon</span></a>
+								</header>
+								<p><font size="1.9" id="add2">0xB36E3f267254CE7fbb3b623d7eA9b89404dD0B09</font></p>
+								<a href="#" class="button primary" id="add2btn" value ="">Send</a>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<a href="" class="icon fa-vcard-o"><span class="label">Icon</span></a>
+								</header>
+								<p><font size="1.9" id="add3">0x489d28f82fB2170601CE8D82c530253dC082f356</font></p>
+								<a href="#" class="button primary" id="add3btn" value ="">Send</a>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<a href="" class="icon fa-vcard-o"><span class="label">Icon</span></a>
+								</header>
+								<p><font size="1.9" id="add4">0xD9b764faC51C33453A48B66D386a9C4c74218803</font></p>
+								<a href="#" class="button primary" id="add4btn" value ="">Send</a>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<a href="" class="icon fa-vcard-o"><span class="label">Icon</span></a>
+								</header>
+								<p><font size="1.9" id="add5">0x3291cB9cB6c483D41c51b0f464BCBA99C270C848</font></p>
+								<a href="#" class="button primary" id="add5btn" value ="">Send</a>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<a href="" class="icon fa-vcard-o"><span class="label">Icon</span></a>
+								</header>
+								<p><font size="1.9" id="add6">0xa584C52Aea005ccbBA0C416d494814C0703EC804</font></p>
+								<a href="#" class="button primary" id="add6btn" value ="">Send</a>
+							</div>
+						</section>
+					</div>
+				</div>
+			</section>
+
+		<!-- CTA -->
+			<section id="cta" class="wrapper">
+				<div class="inner">
+					<h2>Donating has never been so easy.</h2>
+					<p>Remove the middle men, there must be no one between you and your kindness.</p>
+				</div>
+			</section>
+
+			
+
+		
+
+		
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+
+
+
+
+	
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+<script>
+	if (typeof web3 !== 'undefined') {
+	web3 = new Web3(web3.currentProvider);
+	} else {
+	// set the provider you want from Web3.providers
+	web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+	} 	
+
+
+	web3.eth.defaultAccount = web3.eth.accounts[0];
+	var cryptdonorContract = web3.eth.contract([
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "taker",
+				"type": "address"
+			}
+		],
+		"name": "donate",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "needyadder",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "needyWithdraw",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "setFinancialIndex",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "constructor"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "creationTime",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "donorAddr",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "needyAddr",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "population",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "stage",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]);
+	var cryptdonor = cryptdonorContract.at("0x04b8a42a424545d150325cc7ce055f369f5548ef");
+	        console.log(cryptdonor);
+
+    //var getData = cryptdonor.donate.getData("ew");
+	 // function getparticipate(){
+	 // 	console.log("Entered");
+		// 	cryptdonor.donate(function(error, result){
+	 //            if(!error)
+	 //                {
+
+	 //                   // $("#instructor").html(result[0]+' ('+result[1]+' years old)');
+	 //                    console.log(result);
+	 //                }
+	 //            else
+	 //                console.error(error);
+	 //        });
+
+	 //        console.log("Exited")
+	 // }
+	document.getElementById("add1btn").addEventListener("click", function(event){
+	event.preventDefault()
+	var addr = document.getElementById("add1").textContent;
+
+
+	var value = document.getElementById("amt").value.toString();
+
+	participate(addr.toString(),value);
+	
+	});
+
+	document.getElementById("add2btn").addEventListener("click", function(event){
+	event.preventDefault()
+	var addr = document.getElementById("add2").textContent;
+
+
+	var value = document.getElementById("amt").value.toString();
+
+	participate(addr.toString(),value);
+	
+	});
+		
+	document.getElementById("add3btn").addEventListener("click", function(event){
+	event.preventDefault()
+	var addr = document.getElementById("add3").textContent;
+
+
+	var value = document.getElementById("amt").value.toString();
+
+	participate(addr.toString(),value);
+	
+	});
+
+	document.getElementById("add4btn").addEventListener("click", function(event){
+	event.preventDefault()
+	var addr = document.getElementById("add4").textContent;
+
+
+	var value = document.getElementById("amt").value.toString();
+
+	participate(addr.toString(),value);
+	
+	});
+
+	document.getElementById("add5btn").addEventListener("click", function(event){
+	event.preventDefault()
+	var addr = document.getElementById("add5").textContent;
+
+
+	var value = document.getElementById("amt").value.toString();
+
+	participate(addr.toString(),value);
+	
+	});
+
+	document.getElementById("add6btn").addEventListener("click", function(event){
+	event.preventDefault()
+	var addr = document.getElementById("add6").textContent;
+
+
+	var value = document.getElementById("amt").value.toString();
+
+	participate(addr.toString(),value);
+	
+	});
+	 
+
+function participate( addr, amount){
+
+
+			console.log("Entered"+addr + amount);
+			cryptdonor.donate("0xB3fFF3563f1fca621e03192877c90b9bF96fE943",function(error, result){
+	            if(!error)
+	                {
+	                alert("we are here"+ addr);
+	                cryptdonor.methods.donate(addr).send({from:"0x04b8a42a424545d150325cc7ce055f369f5548ef", value:amount})
+	                   // $("#instructor").html(result[0]+' ('+result[1]+' years old)');
+	                    console.log(result);
+	                }
+	            else
+	                console.error(error);
+	        });
+
+	        console.log("Exited")
+
+	        // $("#button").click(function() {
+	        //     cryptdonor.setInstructor($("#name").val(), $("#age").val());
+	        // });
+}
+
+</script>
+</body>
+
+</html>
